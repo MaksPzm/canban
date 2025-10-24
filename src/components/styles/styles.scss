@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.layout {
+    width: 1235px;
+    height: 700px;
+    margin: 0 auto;
+    background-color: rgba(0, 121, 191, 1);
+    display: flex;
+    flex-direction: column;
+    .header {
+        width: 1235px;
+        height: 55px;
+        background-color: rgba(0, 103, 163, 1);
+    }
+    .wrapper {
+        width: 1235px;
+        height: 590px;
+    }
+    .footer {
+        width: 1235px;
+        height: 55px;
+        background-color: rgba(0, 103, 163, 1);    
+    }
+}
