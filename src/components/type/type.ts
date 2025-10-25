@@ -34,3 +34,10 @@ export interface TaskProgress {
 export type arrayTask = [TaskBacklog, TaskReady, TaskProgress, TaskFinished];
 
 export interface TaskComponentProps {name: string}
+
+export interface BtnTaskComponentProps {
+    name: string,
+    type: 'button' | 'submit',
+    className: string,
+    clickBtn: Function
+}
