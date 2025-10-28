@@ -3,7 +3,7 @@ import { arrayTask } from "../type/type"
 export const defaultValue: arrayTask = [
    {
         title: 'Backlog',
-        Backlog: [
+        taskData: [
             {
                 id: '1122',
                 name: 'Sprint bugfix',
@@ -13,7 +13,7 @@ export const defaultValue: arrayTask = [
    },
    {
         title: 'Ready',
-        Ready: [
+        taskData: [
             {
                 id: '',
                 name: '',
@@ -23,7 +23,7 @@ export const defaultValue: arrayTask = [
    },
    {
         title: 'In progress',
-        Progress: [
+        taskData: [
             {
                 id: '',
                 name: '',
@@ -33,7 +33,7 @@ export const defaultValue: arrayTask = [
    },
    {
         title: 'Finished',
-        Finished: [
+        taskData: [
             {
                 id: '',
                 name: '',

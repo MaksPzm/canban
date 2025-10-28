@@ -1,17 +1,24 @@
-import { createContext, JSX, useState } from "react";
+import {createContext, JSX, useCallback, useEffect, useMemo, useState} from "react";
 import { defaultValue } from "../default/default";
-import { arrayTask } from "../type/type";
-import Tasks from "../tasks/Tasks";
+import {arrayTask, taskData} from "../type/type";
+import {Tasks} from "../tasks/Tasks";
 
 
 export const MainContext = createContext<arrayTask>(defaultValue)
 export default function Main(): JSX.Element {
-    const [data, setData] = useState<arrayTask>(defaultValue)
+    const [data, setData] = useState<arrayTask>(defaultValue);
+    const [backlog, setBacklog] = useState<taskData[] | null>(null);
+    // const newList= useMemo(() => ({setData}), [setData]);
+    const newListBacklog = (list: taskData[]) => {setBacklog(list)};
+    useEffect(() => {
+        // setData([...data, data[0].taskData.map());
+    }, [backlog]);
+    console.log("backlog", backlog)
     return (
-        <MainContext.Provider value={defaultValue}>
+        <MainContext.Provider value={data}>
             <div className="wrapper">
-                <Tasks name={"Backlog"}/>
-                <Tasks name={"Ready"}/>
+                <Tasks taskList={data[0]} newList={newListBacklog}  name={"Backlog"}/>
+                <Tasks taskList={data[1]} newList={newListBacklog} name={"Ready"}/>
             </div>
         </MainContext.Provider>
     )

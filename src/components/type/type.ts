@@ -1,43 +1,47 @@
+import {RefObject} from "react";
+
+export interface taskData {
+        id: string,
+        name: string,
+        description: string
+}
 
 export interface TaskBacklog {
     title: 'Backlog',
-    Backlog: [{
-        id: string,
-        name: string,
-        description: string
-    }]
-};
+    taskData: taskData[]
+}
 export interface TaskReady {
     title: 'Ready',
-    Ready: [{
-        id: string,
-        name: string,
-        description: string
-    }]
-};
+    taskData: taskData[]
+}
 export interface TaskFinished {
     title: "Finished",
-    Finished: [{
-        id: string,
-        name: string,
-        description: string
-    }]
-};
+    taskData: taskData[]
+}
 export interface TaskProgress {
     title: "In progress",
-    Progress: [{
-        id: string,
-        name: string,
-        description: string
-    }]
-};
+    taskData: taskData[]
+}
 export type arrayTask = [TaskBacklog, TaskReady, TaskProgress, TaskFinished];
 
-export interface TaskComponentProps {name: string}
+export interface TaskComponentProps {
+    name: string,
+    taskList: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
+    newList: Function;
+}
 
 export interface BtnTaskComponentProps {
     name: string,
     type: 'button' | 'submit',
     className: string,
-    clickBtn: Function
+    clickBtn: Function,
+    clickSubmit?: Function,
+}
+
+export type liRef = RefObject<HTMLLIElement>;
+
+export interface InputTaskComponentProps {
+    ref: Function,
+    saveData: Function,
+    save: boolean
 }

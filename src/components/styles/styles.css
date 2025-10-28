@@ -48,14 +48,14 @@ body {
 .tasks .tasks__section {
   width: 258px;
   margin: 15px auto 17px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
 }
 .tasks .tasks__section .tasks__section_list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .tasks .tasks__section .tasks__section_list .tasks__section_list_item {
   width: 258px;
