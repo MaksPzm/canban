@@ -97,4 +97,13 @@ body {
         background-color: rgba(0, 121, 191, 1);
         color: rgba(255, 255, 255, 1);
     }
+    .tasks__drop {
+        width: 258px;
+        height: 35px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px auto 43px;
+        position: relative;
+    }
 }

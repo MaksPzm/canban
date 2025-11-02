@@ -1,4 +1,4 @@
-import { arrayTask } from "../type/type"
+import {arrayTask, TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type"
 
 export const defaultValue: arrayTask = [
    {
@@ -41,4 +41,30 @@ export const defaultValue: arrayTask = [
             }
         ]
    },
-]
+];
+
+export const tasksBacklog: TaskBacklog =  {
+    title: 'Backlog',
+        taskData: [
+        {
+            id: '1122',
+            name: 'Sprint bugfix',
+            description: "Fix all the bugs"
+        }
+    ]
+};
+
+export const tasksReady: TaskReady =  {
+    title: 'Ready',
+    taskData: []
+};
+
+export const tasksProgress: TaskProgress =  {
+    title: 'In progress',
+    taskData: []
+}
+
+export const tasksFinished: TaskFinished =  {
+    title: 'Finished',
+    taskData: []
+}

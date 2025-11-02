@@ -9,7 +9,7 @@ const BtnTask = (props: BtnTaskComponentProps): JSX.Element => {
         name,
         className,
         clickBtn,
-        clickSubmit
+        clickSubmit,
     } = props;
     const pressBtn = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
         setSub(!sub);

@@ -1,0 +1,38 @@
+.drop .drop__list {
+  position: absolute;
+  width: 258px;
+  min-height: 35px;
+  top: 38px;
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+  list-style: none;
+  border-radius: 5px;
+  margin: 0;
+}
+.drop .drop__list .drop__list_item {
+  font-size: 18px;
+  padding: 8px;
+}
+.drop .drop__list .drop__list_item:hover {
+  background-color: rgb(222, 222, 222);
+}
+.drop .drop__list .drop__list_item:hover:first-of-type {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.drop .drop__list .drop__list_item:hover:last-of-type {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.drop .drop__line {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-left: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  transform: rotate(315deg);
+  top: 7px;
+  right: 11px;
+}
+
+/*# sourceMappingURL=dropBlock.module.css.map */

@@ -97,5 +97,14 @@ body {
   background-color: rgb(0, 121, 191);
   color: rgb(255, 255, 255);
 }
+.tasks .tasks__drop {
+  width: 258px;
+  height: 35px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px auto 43px;
+  position: relative;
+}
 
 /*# sourceMappingURL=styles.css.map */

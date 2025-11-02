@@ -12,15 +12,15 @@ export interface TaskBacklog {
 }
 export interface TaskReady {
     title: 'Ready',
-    taskData: taskData[]
+    taskData: taskData[] | []
 }
 export interface TaskFinished {
     title: "Finished",
-    taskData: taskData[]
+    taskData: taskData[] | []
 }
 export interface TaskProgress {
     title: "In progress",
-    taskData: taskData[]
+    taskData: taskData[] | []
 }
 export type arrayTask = [TaskBacklog, TaskReady, TaskProgress, TaskFinished];
 
@@ -28,6 +28,8 @@ export interface TaskComponentProps {
     name: string,
     taskList: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
     newList: Function;
+    dropList: boolean
+    dropArray?: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
 }
 
 export interface BtnTaskComponentProps {
@@ -44,4 +46,10 @@ export interface InputTaskComponentProps {
     ref: Function,
     saveData: Function,
     save: boolean
+}
+
+export interface DropBlockComponentProps {
+    className: string,
+    dropArray?: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
+    clickDropTask: Function;
 }

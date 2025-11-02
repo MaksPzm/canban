@@ -1,0 +1,38 @@
+.drop {
+    .drop__list {
+        position: absolute;
+        width: 258px;
+        min-height: 35px;
+        top: 38px;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 0;
+        list-style: none;
+        border-radius: 5px;
+        margin: 0;
+        .drop__list_item {
+            font-size: 18px;
+            padding: 8px;
+        }
+        .drop__list_item:hover {
+            background-color: rgba(222, 222, 222, 1);
+        }
+        .drop__list_item:hover:first-of-type {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .drop__list_item:hover:last-of-type {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+    .drop__line {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-left: 1px solid rgba(0, 0, 0, 1);
+        border-bottom: 1px solid rgba(0, 0, 0, 1);
+        transform: rotate(315deg);
+        top: 7px;
+        right: 11px;
+    }
+}
