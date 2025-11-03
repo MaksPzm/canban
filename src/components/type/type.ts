@@ -1,4 +1,4 @@
-import {RefObject} from "react";
+import {Dispatch, RefObject, SetStateAction} from "react";
 
 export interface taskData {
         id: string,
@@ -52,4 +52,5 @@ export interface DropBlockComponentProps {
     className: string,
     dropArray?: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
     clickDropTask: Function;
+    btnDrop: {btnTask: boolean, setBtnTask:  Dispatch<SetStateAction<boolean>>};
 }
