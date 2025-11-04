@@ -1,15 +1,9 @@
 import { JSX } from "react";
-import Header from "../header/Header";
-import Main from "../main/Main";
-import Footer from "../footer/Footer";
 import "../styles/styles.scss"
+import Layout from "./layout/Layout";
 
 export default function App(): JSX.Element {
    return (
-    <div className="layout">
-        <Header />
-        <Main/>
-        <Footer/>    
-    </div>
+       <Layout />
    ) 
 }

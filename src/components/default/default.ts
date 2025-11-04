@@ -1,4 +1,4 @@
-import {arrayTask, TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type"
+import {arrayTask, DefaultLayout, TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type"
 import {json} from "node:stream/consumers";
 
 export const defaultValue: arrayTask = [
@@ -69,3 +69,5 @@ export const tasksFinished: TaskFinished =  {
     title: 'Finished',
     taskData: []
 }
+
+export const defaultLayouts = {context: {active: "0", finished: "0"}} as DefaultLayout;

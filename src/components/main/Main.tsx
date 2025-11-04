@@ -1,16 +1,17 @@
-import {createContext, JSX, useCallback, useEffect, useMemo, useState} from "react";
+import {createContext, JSX, useCallback, useContext, useEffect, useMemo, useState} from "react";
 import { defaultValue, tasksBacklog, tasksReady, tasksProgress, tasksFinished } from "../default/default";
-import {arrayTask, TaskBacklog, taskData, TaskFinished, TaskProgress, TaskReady} from "../type/type";
-import {Tasks} from "../tasks/Tasks";
+import {arrayTask, DefaultLayout, TaskBacklog, taskData, TaskFinished, TaskProgress, TaskReady} from "../type/type";
+import {Tasks} from "./tasks/Tasks";
+import {LayoutCreate} from "../app/layout/Layout";
 
 
 export const MainContext = createContext<arrayTask>(defaultValue)
 export default function Main(): JSX.Element {
+    const {setContext} = useContext(LayoutCreate);
     const backlog: TaskBacklog = localStorage.getItem("backlog") ? (JSON.parse(localStorage.getItem("backlog") as string)) : tasksBacklog;
     const ready: TaskReady = localStorage.getItem("ready") ? (JSON.parse(localStorage.getItem("ready") as string)) : tasksReady;
     const progress: TaskProgress = localStorage.getItem("progress") ? (JSON.parse(localStorage.getItem("progress") as string)) : tasksProgress;
     const finished: TaskFinished = localStorage.getItem("finished") ? (JSON.parse(localStorage.getItem("finished") as string)) : tasksFinished;
-    console.log(" backlog",  backlog);
     const [data, setData] = useState<arrayTask>(defaultValue);
     const [tasksListBacklog, setTasksListBacklog] = useState<TaskBacklog>(backlog);
     const [tasksListReady, setTasksListReady] = useState<TaskReady>(ready);
@@ -33,6 +34,7 @@ export default function Main(): JSX.Element {
         localStorage.setItem("ready", JSON.stringify(tasksListReady));
         localStorage.setItem("progress", JSON.stringify(tasksListProgress));
         localStorage.setItem("finished", JSON.stringify(tasksListFinished));
+        setContext({context: {active: `${tasksListBacklog.taskData.length}`, finished: `${tasksListFinished.taskData.length}`}});
     }, [tasksListBacklog, tasksListReady, tasksListProgress, tasksListFinished]);
     useEffect(() => {
         const excludeIds = tasksListReady.taskData.map((task: taskData) => task.id); // мы составляем массив id которые нужно исключить

@@ -1,4 +1,14 @@
-import {Dispatch, RefObject, SetStateAction} from "react";
+import {Dispatch, SetStateAction} from "react";
+
+type defaultCreat = {
+    active: string;
+    finished: string;
+}
+
+export interface DefaultLayout {
+    context: defaultCreat
+    setContext: Function;
+}
 
 export interface taskData {
         id: string,
@@ -37,10 +47,9 @@ export interface BtnTaskComponentProps {
     type: 'button' | 'submit',
     className: string,
     clickBtn: Function,
+    disabled: boolean,
     clickSubmit?: Function,
 }
-
-export type liRef = RefObject<HTMLLIElement>;
 
 export interface InputTaskComponentProps {
     ref: Function,
@@ -49,8 +58,18 @@ export interface InputTaskComponentProps {
 }
 
 export interface DropBlockComponentProps {
-    className: string,
+    className: string;
     dropArray?: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
     clickDropTask: Function;
     btnDrop: {btnTask: boolean, setBtnTask:  Dispatch<SetStateAction<boolean>>};
+}
+
+export interface TaskListComponentProps {
+    taskList: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
+    className: string;
+}
+
+//footer
+export interface NumberTasksComponentProps {
+    className: string;
 }

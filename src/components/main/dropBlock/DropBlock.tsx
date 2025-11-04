@@ -1,6 +1,6 @@
 import {JSX, useEffect, useState} from "react";
 import styles from "./dropBlock.module.scss"
-import {DropBlockComponentProps, taskData} from "../type/type";
+import {DropBlockComponentProps, taskData} from "../../type/type";
 
 const DropBlock = (props: DropBlockComponentProps): JSX.Element => {
     const {
