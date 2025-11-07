@@ -1,48 +1,7 @@
-import {arrayTask, DefaultLayout, TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type"
+import {DefaultLayout, DefaultValue, TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type"
 import {json} from "node:stream/consumers";
 
-export const defaultValue: arrayTask = [
-   {
-        title: 'Backlog',
-        taskData: [
-            {
-                id: '1122',
-                name: 'Sprint bugfix',
-	            description: "Fix all the bugs"
-            }
-        ]
-   },
-   {
-        title: 'Ready',
-        taskData: [
-            {
-                id: '',
-                name: '',
-	            description: "Fix all the bugs"
-            }
-        ]
-   },
-   {
-        title: 'In progress',
-        taskData: [
-            {
-                id: '',
-                name: '',
-	            description: "Fix all the bugs"
-            }
-        ]
-   },
-   {
-        title: 'Finished',
-        taskData: [
-            {
-                id: '',
-                name: '',
-	            description: "Fix all the bugs"
-            }
-        ]
-   },
-];
+
 
 export const tasksBacklog: TaskBacklog =  {
     title: 'Backlog',
@@ -69,5 +28,12 @@ export const tasksFinished: TaskFinished =  {
     title: 'Finished',
     taskData: []
 }
+
+export const defaultValue: DefaultValue = {
+    tasksListBacklog: tasksBacklog,
+    tasksListReady: tasksReady,
+    tasksListProgress: tasksProgress,
+    tasksListFinished: tasksFinished,
+} as DefaultValue;
 
 export const defaultLayouts = {context: {active: "0", finished: "0"}} as DefaultLayout;

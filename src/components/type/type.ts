@@ -1,4 +1,5 @@
 import {Dispatch, SetStateAction} from "react";
+import {tasksBacklog, tasksFinished, tasksProgress, tasksReady} from "../default/default";
 
 type defaultCreat = {
     active: string;
@@ -18,7 +19,7 @@ export interface taskData {
 
 export interface TaskBacklog {
     title: 'Backlog',
-    taskData: taskData[]
+    taskData: taskData[] | []
 }
 export interface TaskReady {
     title: 'Ready',
@@ -32,7 +33,16 @@ export interface TaskProgress {
     title: "In progress",
     taskData: taskData[] | []
 }
-export type arrayTask = [TaskBacklog, TaskReady, TaskProgress, TaskFinished];
+export type DefaultValue = {
+    tasksListBacklog: TaskBacklog;
+    tasksListReady: TaskReady;
+    tasksListProgress: TaskProgress;
+    tasksListFinished: TaskFinished;
+    setTasksListBacklog: Function;
+    setTasksListReady: Function;
+    setTasksListProgress: Function;
+    setTasksListFinished: Function;
+};
 
 export interface TaskComponentProps {
     name: string,
@@ -66,6 +76,10 @@ export interface DropBlockComponentProps {
 
 export interface TaskListComponentProps {
     taskList: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
+    className: string;
+}
+
+export interface DeleteTaskComponentProps {
     className: string;
 }
 

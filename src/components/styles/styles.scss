@@ -147,3 +147,52 @@ body {
         position: relative;
     }
 }
+
+@media screen and (max-width: 420px) {
+    .layout {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 30px;
+        .header {
+            width: auto;
+            height: auto;
+            max-width: 380px;
+            margin-top: 10px;
+            background-color: rgba(0, 121, 191, 1);
+            .header__section {
+                justify-content: flex-end;
+                .header__title {
+                    display: none;
+                }
+            }
+            .profile {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+            }
+            .profile__block {
+                position: relative;
+                top: 0;
+            }
+        }
+        .wrapper {
+            width: auto;
+            height: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 91px;
+            .tasks {
+                margin: 0;
+            }
+        }
+        .footer {
+            display: none;
+        }
+    }
+
+}

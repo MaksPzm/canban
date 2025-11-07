@@ -6,16 +6,20 @@
   position: relative;
 }
 .profile .profile__users {
-  width: 40px;
   height: 40px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
-.profile .profile__arrows_open {
+.profile .profile__users .profile__arrows_open {
   width: 8px;
   height: 8px;
   border-top: 2px solid rgb(255, 255, 255);
   border-right: 2px solid rgb(255, 255, 255);
   transform: rotate(135deg);
+}
+.profile .profile__users .profile__arrows_close {
+  transform: rotate(-45deg);
 }
 .profile .profile__arrows_close {
   transform: rotate(-45deg);

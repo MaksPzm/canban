@@ -5,17 +5,22 @@
     cursor: pointer;
     position: relative;
     .profile__users {
-        width: 40px;
         height: 40px;
-        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        .profile__arrows_open {
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid rgba(255, 255, 255, 1);
+            border-right: 2px solid rgba(255, 255, 255, 1);
+            transform: rotate(135deg);
+        }
+        .profile__arrows_close {
+            transform: rotate(-45deg);
+        }
     }
-    .profile__arrows_open {
-        width: 8px;
-        height: 8px;
-        border-top: 2px solid rgba(255, 255, 255, 1);
-        border-right: 2px solid rgba(255, 255, 255, 1);
-        transform: rotate(135deg);
-    }
+
     .profile__arrows_close {
         transform: rotate(-45deg);
     }

@@ -6,12 +6,13 @@ const Profile = (): JSX.Element => {
     const [profile, setProfile] = useState<boolean>(false);
     return (
         <div className={`profile ${styles.profile}`} onClick={() => {setProfile(!profile)}}>
-            <div className={styles.profile__users}><img className={styles.profile__users_img} src={prof} alt="фото профиля"/></div>
-            {!profile
-                ? <div className={styles.profile__arrows_open}></div>
-                : <div className={`${styles.profile__arrows_open} ${styles.profile__arrows_close}`}></div>}
+            <div className={`profile__article ${styles.profile__users}`}><img className={styles.profile__users_img} src={prof} alt="фото профиля"/>
+                {!profile
+                    ? <div className={styles.profile__arrows_open}></div>
+                    : <div className={`${styles.profile__arrows_open} ${styles.profile__arrows_close}`}></div>}
+            </div>
             {profile &&
-                <div className={styles.profile__block}>
+                <div className={`profile__block ${styles.profile__block}`}>
                     <div className={styles.profile__block_arrow}></div>
                     <ul className={styles.profile__block_list}>
                         <li className={styles.profile__block_list_item}><a href="#" className={styles.profile__block_list_item_link}>Profile</a></li>
