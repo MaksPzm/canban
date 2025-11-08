@@ -1,5 +1,4 @@
 import {Dispatch, SetStateAction} from "react";
-import {tasksBacklog, tasksFinished, tasksProgress, tasksReady} from "../default/default";
 
 type defaultCreat = {
     active: string;
@@ -33,15 +32,20 @@ export interface TaskProgress {
     title: "In progress",
     taskData: taskData[] | []
 }
+
+export interface SelectedTask {category: string, id: string, clickedTask: boolean}
+
 export type DefaultValue = {
     tasksListBacklog: TaskBacklog;
     tasksListReady: TaskReady;
     tasksListProgress: TaskProgress;
     tasksListFinished: TaskFinished;
+    selectedTask: SelectedTask;
     setTasksListBacklog: Function;
     setTasksListReady: Function;
     setTasksListProgress: Function;
     setTasksListFinished: Function;
+    setSelectedTask: Function;
 };
 
 export interface TaskComponentProps {

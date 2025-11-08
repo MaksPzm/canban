@@ -1,0 +1,43 @@
+.detailedTaskPage {
+    width: 1181px;
+    height: 548px;
+    overflow-y: auto;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .detailedTaskPage__name, .detailedTaskPage__description {
+        max-width: 621px;
+        border: none;
+        resize: none;
+        outline: none;
+    }
+    .detailedTaskPage__name {
+        margin: 22px 0 0 28px;
+        font: 28px "Roboto", sans-serif;
+    }
+    .detailedTaskPage__description {
+        font: 18px / 100% "Roboto", sans-serif;
+        margin: 35px 0 0 30px;
+    }
+    .detailedTaskPage__close {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 17px;
+        right: 23px;
+        cursor: pointer;
+        .detailedTaskPage__close_img {
+            position: absolute;
+        }
+    }
+    .detailedTaskPage__close::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 102%;
+        height: 102%;
+    }
+}

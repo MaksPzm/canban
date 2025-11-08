@@ -34,6 +34,7 @@ export const defaultValue: DefaultValue = {
     tasksListReady: tasksReady,
     tasksListProgress: tasksProgress,
     tasksListFinished: tasksFinished,
+    selectedTask: {category: "", id: ""},
 } as DefaultValue;
 
 export const defaultLayouts = {context: {active: "0", finished: "0"}} as DefaultLayout;

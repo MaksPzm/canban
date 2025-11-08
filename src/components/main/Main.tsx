@@ -1,7 +1,7 @@
 import {createContext, JSX, useContext, useEffect, useMemo, useState} from "react";
 import TaskBlock from "./taskBlock/TaskBlock";
 import {defaultValue, tasksBacklog, tasksFinished, tasksProgress, tasksReady} from "../default/default";
-import {TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type";
+import {SelectedTask, TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type";
 import {LayoutCreate} from "../app/layout/Layout";
 import DetailedTaskPage from "./detailedDaskPage/DetailedTaskPage";
 
@@ -15,10 +15,14 @@ export default function Main(): JSX.Element {
     const [tasksListReady, setTasksListReady] = useState<TaskReady>(ready);
     const [tasksListProgress, setTasksListProgress] = useState<TaskProgress>(progress);
     const [tasksListFinished, setTasksListFinished] = useState<TaskFinished>(finished);
+    const [selectedTask, setSelectedTask] = useState<SelectedTask>({category: "", id: "", clickedTask: false});
     const {setContext} = useContext(LayoutCreate);
     const defaultMainValue = useMemo(() => (
-        {tasksListBacklog, setTasksListBacklog, tasksListReady, setTasksListReady, tasksListProgress, setTasksListProgress, tasksListFinished, setTasksListFinished}),
-        [tasksListBacklog, setTasksListProgress, tasksListFinished, setTasksListFinished, tasksListReady, tasksListProgress])
+        {tasksListBacklog, setTasksListBacklog, tasksListReady, setTasksListReady,
+            tasksListProgress, setTasksListProgress, tasksListFinished, setTasksListFinished,
+            selectedTask, setSelectedTask
+        }),
+        [tasksListBacklog, setTasksListProgress, tasksListFinished, setTasksListFinished, tasksListReady, tasksListProgress, selectedTask])
     useEffect(() => {
         localStorage.setItem("backlog", JSON.stringify(tasksListBacklog));
         localStorage.setItem("ready", JSON.stringify(tasksListReady));
@@ -28,7 +32,12 @@ export default function Main(): JSX.Element {
     }, [tasksListBacklog, tasksListReady, tasksListProgress, tasksListFinished]);
     return (
         <MainCreate.Provider value={defaultMainValue}>
-            <TaskBlock/>
+            <div className="wrapper">
+                {selectedTask.clickedTask
+                    ? <DetailedTaskPage className={"detailedTaskPage"} />
+                    : <TaskBlock/>
+                }
+            </div>
         </MainCreate.Provider>
     )
 }

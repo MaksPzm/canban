@@ -1,3 +1,45 @@
-
+.detailedTaskPage {
+  width: 1181px;
+  height: 548px;
+  overflow-y: auto;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.detailedTaskPage .detailedTaskPage__name, .detailedTaskPage .detailedTaskPage__description {
+  max-width: 621px;
+  border: none;
+  resize: none;
+  outline: none;
+}
+.detailedTaskPage .detailedTaskPage__name {
+  margin: 22px 0 0 28px;
+  font: 28px "Roboto", sans-serif;
+}
+.detailedTaskPage .detailedTaskPage__description {
+  font: 18px/100% "Roboto", sans-serif;
+  margin: 35px 0 0 30px;
+}
+.detailedTaskPage .detailedTaskPage__close {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 17px;
+  right: 23px;
+  cursor: pointer;
+}
+.detailedTaskPage .detailedTaskPage__close .detailedTaskPage__close_img {
+  position: absolute;
+}
+.detailedTaskPage .detailedTaskPage__close::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 102%;
+  height: 102%;
+}
 
 /*# sourceMappingURL=detailedTaskPage.module.css.map */

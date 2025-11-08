@@ -36,11 +36,11 @@ export default function TaskBlock(): JSX.Element {
         const excludeIds = tasksListFinished.taskData.map((task: taskData) => task.id);
         setTasksListProgress({...tasksListProgress, taskData: tasksListProgress.taskData.filter((item: taskData) => !excludeIds.includes(item.id))});
     }, [tasksListFinished]);    return (
-        <div className="wrapper">
+        <>
             <Tasks taskList={tasksListBacklog} newList={newListBacklog} dropList={false} name={"Backlog"}/>
             <Tasks taskList={tasksListReady} newList={newListReady} dropList dropArray={tasksListBacklog} name={"Ready"}/>
             <Tasks taskList={tasksListProgress} newList={newListProgress} dropList dropArray={tasksListReady} name={"In Progress"}/>
             <Tasks taskList={tasksListFinished} newList={newListFinished} dropList dropArray={tasksListProgress} name={"Finished"}/>
-        </div>
+        </>
     );
 }
