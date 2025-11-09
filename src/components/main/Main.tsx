@@ -4,6 +4,8 @@ import {defaultValue, tasksBacklog, tasksFinished, tasksProgress, tasksReady} fr
 import {SelectedTask, TaskBacklog, TaskFinished, TaskProgress, TaskReady} from "../type/type";
 import {LayoutCreate} from "../app/layout/Layout";
 import DetailedTaskPage from "./detailedDaskPage/DetailedTaskPage";
+import {Route, Routes} from "react-router";
+import taskList from "./taskList/TaskList";
 
 export const MainCreate = createContext(defaultValue)
 export default function Main(): JSX.Element {
@@ -30,13 +32,19 @@ export default function Main(): JSX.Element {
         localStorage.setItem("finished", JSON.stringify(tasksListFinished));
         setContext({context: {active: `${tasksListBacklog.taskData.length}`, finished: `${tasksListFinished.taskData.length}`}});
     }, [tasksListBacklog, tasksListReady, tasksListProgress, tasksListFinished]);
+    const navigationRoutes = [
+        {path: "/", element: <TaskBlock/>},
+        {path: `/tasks/${selectedTask.id}`, element: <DetailedTaskPage className={"detailedTaskPage"}/>},
+        {path: `/tasks/${selectedTask.id}`, element: <DetailedTaskPage className={"detailedTaskPage"}/>},
+        {path: `/tasks/${selectedTask.id}`, element: <DetailedTaskPage className={"detailedTaskPage"}/>},
+        {path: `/tasks/${tasksListFinished.taskData.map(task => task.id)}`, element: <DetailedTaskPage className={"detailedTaskPage"}/>},
+    ]
     return (
         <MainCreate.Provider value={defaultMainValue}>
             <div className="wrapper">
-                {selectedTask.clickedTask
-                    ? <DetailedTaskPage className={"detailedTaskPage"} />
-                    : <TaskBlock/>
-                }
+                <Routes>
+                    {navigationRoutes.map((route) => (<Route key={route.path} path={route.path} element={route.element} />))}
+                </Routes>
             </div>
         </MainCreate.Provider>
     )

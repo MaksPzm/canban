@@ -42,4 +42,21 @@
   height: 102%;
 }
 
+@media screen and (max-width: 420px) {
+  .detailedTaskPage {
+    width: 80%;
+    height: auto;
+    margin-left: 21px;
+    margin-right: 35px;
+  }
+  .detailedTaskPage .detailedTaskPage__name, .detailedTaskPage .detailedTaskPage__description {
+    max-width: 280px;
+    margin-right: 45px;
+  }
+  .detailedTaskPage .detailedTaskPage__description {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
 /*# sourceMappingURL=detailedTaskPage.module.css.map */

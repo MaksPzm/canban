@@ -99,9 +99,11 @@ body {
   position: relative;
 }
 .tasks .tasks__section .tasks__section_list .tasks__section_list_item .tasks__section_list_item_link {
+  max-width: 250px;
   font-size: 18px;
   padding-left: 8px;
   padding-right: 9px;
+  display: inline-block;
 }
 .tasks .tasks__section .tasks__section_list .tasks__section_list_item::before {
   content: "";
@@ -183,9 +185,9 @@ body {
   }
   .layout .wrapper {
     width: auto;
-    height: auto;
+    height: 100vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 50px;
     margin-bottom: 91px;

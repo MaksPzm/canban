@@ -54,6 +54,7 @@ export interface TaskComponentProps {
     newList: Function;
     dropList: boolean
     dropArray?: TaskBacklog | TaskReady | TaskProgress | TaskFinished;
+    idTask: number;
 }
 
 export interface BtnTaskComponentProps {

@@ -4,11 +4,13 @@ import styles from  "./detailedTaskPage.module.scss"
 import {MainCreate} from "../Main";
 import line from "./images/svg/Line 2.svg";
 import line2 from "./images/svg/Line 3.svg";
+import {useNavigate} from "react-router";
 
 const DetailedTaskPage = (props: DeleteTaskComponentProps): JSX.Element => {
     const { className = "",
 
     } = props;
+    const navigate = useNavigate();
     const {tasksListBacklog, setTasksListBacklog,
         tasksListReady, setTasksListReady,
         tasksListProgress, setTasksListProgress,
@@ -66,6 +68,7 @@ const DetailedTaskPage = (props: DeleteTaskComponentProps): JSX.Element => {
             }
         }
         setSelectedTask({...setSelectedTask,  clickedTask: false});
+        navigate("/");
     }
     return (
         <div className={`${className} ${styles.detailedTaskPage}`}>

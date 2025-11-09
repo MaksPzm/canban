@@ -2,13 +2,14 @@ import {JSX, useContext, useEffect, useState} from "react";
 import {taskData} from "../../type/type";
 import {Tasks} from "../tasks/Tasks";
 import {MainCreate} from "../Main";
+import {useNavigate} from "react-router";
 
 export default function TaskBlock(): JSX.Element {
     const {tasksListBacklog, setTasksListBacklog,
     tasksListReady, setTasksListReady,
     tasksListProgress, setTasksListProgress,
     tasksListFinished, setTasksListFinished} = useContext(MainCreate);
-
+    const [idTask, setIdTask] = useState<number>(0);
     const newListBacklog = (list: taskData) => {
         setTasksListBacklog({...tasksListBacklog, taskData: [...tasksListBacklog.taskData, list]})
     };
@@ -35,12 +36,17 @@ export default function TaskBlock(): JSX.Element {
     useEffect(() => {
         const excludeIds = tasksListFinished.taskData.map((task: taskData) => task.id);
         setTasksListProgress({...tasksListProgress, taskData: tasksListProgress.taskData.filter((item: taskData) => !excludeIds.includes(item.id))});
-    }, [tasksListFinished]);    return (
+    }, [tasksListFinished]);
+    useEffect(() => {
+        const arrayLength = tasksListBacklog.taskData.length + tasksListReady.taskData.length + tasksListProgress.taskData.length + tasksListFinished.taskData.length;
+        setIdTask(arrayLength);
+    }, [tasksListReady, tasksListProgress, tasksListFinished, tasksListBacklog]);
+    return (
         <>
-            <Tasks taskList={tasksListBacklog} newList={newListBacklog} dropList={false} name={"Backlog"}/>
-            <Tasks taskList={tasksListReady} newList={newListReady} dropList dropArray={tasksListBacklog} name={"Ready"}/>
-            <Tasks taskList={tasksListProgress} newList={newListProgress} dropList dropArray={tasksListReady} name={"In Progress"}/>
-            <Tasks taskList={tasksListFinished} newList={newListFinished} dropList dropArray={tasksListProgress} name={"Finished"}/>
+            <Tasks taskList={tasksListBacklog} newList={newListBacklog} dropList={false} name={"Backlog"} idTask={idTask}/>
+            <Tasks taskList={tasksListReady} newList={newListReady} dropList dropArray={tasksListBacklog} name={"Ready"} idTask={idTask}/>
+            <Tasks taskList={tasksListProgress} newList={newListProgress} dropList dropArray={tasksListReady} name={"In Progress"} idTask={idTask}/>
+            <Tasks taskList={tasksListFinished} newList={newListFinished} dropList dropArray={tasksListProgress} name={"Finished"} idTask={idTask}/>
         </>
     );
 }

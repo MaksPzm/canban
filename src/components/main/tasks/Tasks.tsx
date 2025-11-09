@@ -12,6 +12,7 @@ export function Tasks(props: TaskComponentProps): JSX.Element {
         newList,
         dropList,
         dropArray,
+        idTask = 0
     } = props;
 
     const [btnTask, setBtnTask] = useState<boolean>(false);
@@ -35,7 +36,7 @@ export function Tasks(props: TaskComponentProps): JSX.Element {
     const clickSubmit = (e: Event) => {
         e.preventDefault();
         if (name === "Backlog" && saveInput !== null) {
-            newList({id: `${taskList.taskData.length}${saveInput.charAt(0)}${saveInput.charAt(saveInput.length-1)}`, name: saveInput, description: "Fix all the bugs"})
+            newList({id: `${idTask}`, name: saveInput, description: "Fix all the bugs"})
         }
     }
     const clickDropTask = (task: taskData) => {
