@@ -11,14 +11,12 @@ const TaskList = (props: TaskListComponentProps): JSX.Element => {
     const [clickedTask, setClickedTask] = useState<SelectedTask>({category: "", id: "", clickedTask: false});
     const onClickLiElement = (event: React.MouseEvent) => {
         if (LiElementRef !== null) {
-            // navigate(`/tasks/${event.currentTarget.id}`);
             LiElementRef.current?.setAttribute("taskName", taskList.title)
             setClickedTask({category: `${LiElementRef.current?.attributes[2].nodeValue}`, id: event.currentTarget.id, clickedTask: true});
             if (taskList.title == "Backlog") navigate(`/tasks/${taskList.taskData.filter((task: taskData) => task.id == event.currentTarget.id)[0].id}`);
             if (taskList.title == "Ready") navigate(`/tasks/${taskList.taskData.filter((task: taskData) => task.id == event.currentTarget.id)[0].id}`);
             if (taskList.title == "In progress") navigate(`/tasks/${taskList.taskData.filter((task: taskData) => task.id == event.currentTarget.id)[0].id}`);
             if (taskList.title == "Finished") navigate(`/tasks/${taskList.taskData.filter((task: taskData) => task.id == event.currentTarget.id)[0].id}`);
-            // let bac = taskList.taskData.map((task: taskData) => task.id == event.currentTarget.id)[0].id;
         }
     }
     useEffect(() => {

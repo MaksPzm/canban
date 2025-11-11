@@ -88,6 +88,10 @@ export interface DeleteTaskComponentProps {
     className: string;
 }
 
+export interface PageNotFoundProps {
+    className: string;
+}
+
 //footer
 export interface NumberTasksComponentProps {
     className: string;

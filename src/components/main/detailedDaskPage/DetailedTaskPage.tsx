@@ -7,8 +7,7 @@ import line2 from "./images/svg/Line 3.svg";
 import {useNavigate} from "react-router";
 
 const DetailedTaskPage = (props: DeleteTaskComponentProps): JSX.Element => {
-    const { className = "",
-
+    const { className = ""
     } = props;
     const navigate = useNavigate();
     const {tasksListBacklog, setTasksListBacklog,
@@ -55,7 +54,7 @@ const DetailedTaskPage = (props: DeleteTaskComponentProps): JSX.Element => {
                 setTasksListReady({...tasksListReady, taskData: newList});
             }
         }
-        if (selectedTask.category === "In Progress") {
+        if (selectedTask.category === "In progress") {
             if (indexTask !== null) {
                 const newList = tasksListProgress.taskData.map((task: taskData, index: number) => (index === indexTask) ? dataSelected[0] : task);
                 setTasksListProgress({...tasksListProgress, taskData: newList});

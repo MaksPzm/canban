@@ -1,0 +1,23 @@
+.pageNotFound {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .pageNotFound__title {
+        color: rgba(255, 255, 255, 1);
+    }
+    .pageNotFound__btn {
+        max-width: 150px;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 1);
+        border: none;
+        border-radius: 5px;
+        font: 600 16px "Roboto", sans-serif;
+        padding: 10px 15px;
+    }
+    .pageNotFound__btn:hover {
+        background-color: rgba(0, 103, 163, 1);
+        color: rgba(255, 255, 255, 1);
+    }
+}

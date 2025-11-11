@@ -2,7 +2,6 @@ import {JSX, useContext, useEffect, useState} from "react";
 import {taskData} from "../../type/type";
 import {Tasks} from "../tasks/Tasks";
 import {MainCreate} from "../Main";
-import {useNavigate} from "react-router";
 
 export default function TaskBlock(): JSX.Element {
     const {tasksListBacklog, setTasksListBacklog,
