@@ -40,7 +40,6 @@ export default function Main(): JSX.Element {
         {path: `/tasks/${selectedTask.id}`, element: <DetailedTaskPage className={"detailedTaskPage"}/>},
         {path: `/tasks/:taskId`, element: <DetailedTaskPageById className={"detailedTaskPage"}/>},
         {path: `/*`, element: <PageNotFound className={"pageNotFound"} />}
-
     ]
     return (
         <MainCreate.Provider value={defaultMainValue}>
